@@ -1,9 +1,16 @@
 <?php
-require_once ('function.php');
-require_once ('quiztable_class.php');
-$quizTable = new quizTable(db());
-$quizs = $quizTable->get_quiz();
-$quizNumber = 1;
+if(isset($_POST['qid1'],$_POST['qid2'],$_POST['qid3'],$_POST['qid4'],$_POST['qid5'],$_POST['answer1'],$_POST['answer2'],$_POST['answer3'],$_POST['answer4'],$_POST['answer5'])){
+    $qid1 = $_POST['qid1'];
+    $qid2 = $_POST['qid2'];
+    $qid3 = $_POST['qid3'];
+    $qid4 = $_POST['qid4'];
+    $qid5 = $_POST['qid5'];
+    $answer1 = $_POST['answer1'];
+    $answer2 = $_POST['answer2'];
+    $answer3 = $_POST['answer3'];
+    $answer4 = $_POST['answer4'];
+    $answer5 = $_POST['answer5'];
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,23 +29,6 @@ $quizNumber = 1;
     </header>
     <div id="contents">
         <main>
-            <form>
-                <?php
-                foreach($quizs as $quiz){
-                    ?>
-                    <p>クイズ<?php echo $quizNumber; ?></p>
-                    <p><?php echo $quiz->getQuestion(); ?></p>
-                    <input type="radio" name="answer<?php echo $quizNumber; ?>" value="1"><?php echo $quiz->getAnswer1(); ?>
-                    <input type="radio" name="answer<?php echo $quizNumber; ?>" value="2"><?php echo $quiz->getAnswer2(); ?>
-                    <input type="radio" name="answer<?php echo $quizNumber; ?>" value="3"><?php echo $quiz->getAnswer3(); ?>
-                    <input type="radio" name="answer<?php echo $quizNumber; ?>" value="4"><?php echo $quiz->getAnswer4(); ?>
-                    <?php
-                    $quizNumber = $quizNumber + 1;
-                }
-                ?>
-                <p><input type="submit" value="解答を登録する"></p>
-            </form>
-            <p><a href="index.php">TOP</a></p>
         </main>
     </div>
     <footer>

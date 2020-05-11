@@ -22,7 +22,7 @@ $quizNumber = 1;
     </header>
     <div id="contents">
         <main>
-            <form>
+            <form method="POST" action="recordAdd.php">
             <?php
             foreach($quizs as $quiz){
                 ?>
@@ -32,6 +32,7 @@ $quizNumber = 1;
                 <input type="radio" name="answer<?php echo $quizNumber; ?>" value="2"><?php echo $quiz->getAnswer2(); ?>
                 <input type="radio" name="answer<?php echo $quizNumber; ?>" value="3"><?php echo $quiz->getAnswer3(); ?>
                 <input type="radio" name="answer<?php echo $quizNumber; ?>" value="4"><?php echo $quiz->getAnswer4(); ?>
+                <input type="hidden" name="qid<?php echo $quizNumber; ?>" value="<?php echo $quiz->getQid(); ?>">
                 <?php
                 $quizNumber = $quizNumber + 1;
             }
