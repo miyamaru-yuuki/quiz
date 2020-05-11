@@ -48,4 +48,28 @@ class quizTable
 
         return $correctAnswer;
     }
+
+    public function getCorrectCount($kekka)
+    {
+        $count = 0;
+        foreach ($kekka as $data){
+            if($data){
+                $count = $count + 1;
+            }
+        }
+        return $count;
+    }
+
+    public function getKekkaDisplay($kekka)
+    {
+        $kekkaDisplay = [];
+        foreach ($kekka as $key => $data){
+            if($data){
+                $kekkaDisplay[$key] = '○';
+            }else{
+                $kekkaDisplay[$key] = '×';
+            }
+        }
+        return $kekkaDisplay;
+    }
 }
