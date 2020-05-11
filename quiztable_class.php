@@ -25,8 +25,27 @@ class quizTable
         return $ret;
     }
 
-//    public function get_hantei()
-//    {
-//
-//    }
+    public function get_hantei($answer)
+    {
+        $kekka = [];
+        foreach ($answer as $key => $data){
+            $correctAnswer = $this->getCorrectAnswer($key);
+            if($correctAnswer['correctAnswer'] == $data){
+                $kekka[$key] = 1; //正解
+            }else{
+                $kekka[$key] = 0; //不正解
+            }
+        }
+        return $kekka;
+    }
+
+    private function getCorrectAnswer($qid)
+    {
+        $sql = $this->db->prepare("SELECT correctAnswer FROM quiz WHERE qid=?");
+        $sql->bindValue(1, $qid);
+        $sql->execute();
+        $correctAnswer = $sql->fetch();
+
+        return $correctAnswer;
+    }
 }

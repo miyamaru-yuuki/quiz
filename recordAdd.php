@@ -1,4 +1,6 @@
 <?php
+require_once ('function.php');
+require_once ('quiztable_class.php');
 if(isset($_POST['qid1'],$_POST['qid2'],$_POST['qid3'],$_POST['qid4'],$_POST['qid5'],$_POST['answer1'],$_POST['answer2'],$_POST['answer3'],$_POST['answer4'],$_POST['answer5'])){
     $qid1 = $_POST['qid1'];
     $qid2 = $_POST['qid2'];
@@ -10,6 +12,19 @@ if(isset($_POST['qid1'],$_POST['qid2'],$_POST['qid3'],$_POST['qid4'],$_POST['qid
     $answer3 = $_POST['answer3'];
     $answer4 = $_POST['answer4'];
     $answer5 = $_POST['answer5'];
+
+    var_dump($qid1);
+
+    $answer = array($qid1=>$answer1);
+    $answer = array_merge($answer,array($qid2=>$answer2));
+    $answer = array_merge($answer,array($qid3=>$answer3));
+    $answer = array_merge($answer,array($qid4=>$answer4));
+    $answer = array_merge($answer,array($qid5=>$answer5));
+
+    var_dump($answer);
+
+    $quizTable = new quizTable(db());
+    $kekka = $quizTable->get_hantei($answer);
 }
 ?>
 <!DOCTYPE html>
