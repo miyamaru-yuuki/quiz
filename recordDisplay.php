@@ -32,6 +32,7 @@ $records = $recordTable->get_record();
                 }
                 ?>
             </table>
+            <p><a href="index.php">TOP</a></p>
         </main>
     </div>
     <footer>
