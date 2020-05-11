@@ -42,3 +42,37 @@ function title(){
 function css(){
     return 'styles.css';
 }
+
+/*
+ 関数名：getCorrectCount
+ 機能：正解数を取得する
+ 引数：なし
+ 戻り値：CSSファイル
+ */
+function getCorrectCount($kekka){
+    $count = 0;
+    foreach ($kekka as $data){
+        if($data){
+            $count = $count + 1;
+        }
+    }
+    return $count;
+}
+
+/*
+ 関数名：css
+ 機能：読み込むCSSファイルを取得する
+ 引数：なし
+ 戻り値：CSSファイル
+ */
+function getKekkaDisplay($kekka){
+    $kekkaDisplay = [];
+    foreach ($kekka as $key => $data){
+        if($data){
+            $kekkaDisplay[$key] = '○';
+        }else{
+            $kekkaDisplay[$key] = '×';
+        }
+    }
+    return $kekkaDisplay;
+}

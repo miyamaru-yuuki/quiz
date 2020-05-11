@@ -13,18 +13,18 @@ if(isset($_POST['qid1'],$_POST['qid2'],$_POST['qid3'],$_POST['qid4'],$_POST['qid
     $answer4 = $_POST['answer4'];
     $answer5 = $_POST['answer5'];
 
-    var_dump($qid1);
-
-    $answer = array($qid1=>$answer1);
-    $answer = array_merge($answer,array($qid2=>$answer2));
-    $answer = array_merge($answer,array($qid3=>$answer3));
-    $answer = array_merge($answer,array($qid4=>$answer4));
-    $answer = array_merge($answer,array($qid5=>$answer5));
-
-    var_dump($answer);
+    $answer[$qid1] = $answer1;
+    $answer[$qid2] = $answer2;
+    $answer[$qid3] = $answer3;
+    $answer[$qid4] = $answer4;
+    $answer[$qid5] = $answer5;
 
     $quizTable = new quizTable(db());
     $kekka = $quizTable->get_hantei($answer);
+
+    $count = getCorrectCount($kekka);
+    $kekkaDisplay = getKekkaDisplay($kekka);
+    $quizNumber = 1;
 }
 ?>
 <!DOCTYPE html>
@@ -44,6 +44,17 @@ if(isset($_POST['qid1'],$_POST['qid2'],$_POST['qid3'],$_POST['qid4'],$_POST['qid
     </header>
     <div id="contents">
         <main>
+            <p>お疲れ様でした。</p>
+            <p>あなたは5問中<?php echo $count; ?>問正解です。</p>
+            <p>名前を登録してください。</p>
+            <?php
+            foreach($kekkaDisplay as $data){
+                ?>
+                <p>クイズ<?php echo $quizNumber; ?>:<?php echo $data ?></p>
+                <?php
+                $quizNumber = $quizNumber + 1;
+            }
+            ?>
         </main>
     </div>
     <footer>
