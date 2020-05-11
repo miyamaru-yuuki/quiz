@@ -2,11 +2,6 @@
 require_once ('function.php');
 require_once ('quiztable_class.php');
 
-//エラー処理
-if(isset($_GET['error']) && $_GET['error'] == 2){
-    echo '名前が入力されていません。';
-}
-
 if(isset($_POST['qid1'],$_POST['qid2'],$_POST['qid3'],$_POST['qid4'],$_POST['qid5'],$_POST['answer1'],$_POST['answer2'],$_POST['answer3'],$_POST['answer4'],$_POST['answer5'])){
     $qid1 = $_POST['qid1'];
     $qid2 = $_POST['qid2'];
@@ -31,6 +26,8 @@ if(isset($_POST['qid1'],$_POST['qid2'],$_POST['qid3'],$_POST['qid4'],$_POST['qid
     $count = $quizTable->getCorrectCount($kekka);
     $kekkaDisplay = $quizTable->getKekkaDisplay($kekka);
     $quizNumber = 1;
+}else{
+    exit();
 }
 ?>
 <!DOCTYPE html>

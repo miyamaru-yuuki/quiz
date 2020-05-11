@@ -1,6 +1,14 @@
 <?php
 require_once ('function.php');
 require_once ('quiztable_class.php');
+
+//エラー処理
+if(isset($_GET['error']) && $_GET['error'] == 1){
+    echo 'ページを表示できません。やりなおしてください。';
+}elseif(isset($_GET['error']) && $_GET['error'] == 2){
+    echo '名前が入力されていません。';
+}
+
 $quizTable = new quizTable(db());
 $quizs = $quizTable->get_quiz();
 $quizNumber = 1;
