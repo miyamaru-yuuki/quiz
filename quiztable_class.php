@@ -30,7 +30,7 @@ class quizTable
         $kekka = [];
         foreach ($answer as $key => $data){
             $correctAnswer = $this->getCorrectAnswer($key);
-            if($correctAnswer['correctAnswer'] == $data){
+            if($correctAnswer->getCorrectAnswer() == $data){
                 $kekka[$key] = 1; //正解
             }else{
                 $kekka[$key] = 0; //不正解
@@ -44,7 +44,8 @@ class quizTable
         $sql = $this->db->prepare("SELECT correctAnswer FROM quiz WHERE qid=?");
         $sql->bindValue(1, $qid);
         $sql->execute();
-        $correctAnswer = $sql->fetch();
+        $data = $sql->fetch();
+        $correctAnswer = new quiz(null,null,null,null,null,null,$data['correctAnswer']);
 
         return $correctAnswer;
     }
