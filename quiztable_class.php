@@ -10,7 +10,7 @@ class quizTable
         $this->db = $db;
     }
 
-    public function get_quiz()
+    public function get_quiz_all()
     {
         $sql = $this->db->prepare("SELECT * FROM quiz LIMIT 5");
         $sql->execute();
@@ -23,6 +23,16 @@ class quizTable
         }
 
         return $ret;
+    }
+
+    public function get_quiz($qid)
+    {
+        $sql = $this->db->prepare("SELECT * FROM quiz WHERE qid=?");
+        $sql->bindValue(1, $qid);
+        $sql->execute();
+        $data = $sql->fetch();
+
+        return $data;
     }
 
     public function get_hantei($answer)

@@ -10,7 +10,7 @@ if(isset($_GET['error']) && $_GET['error'] == 1){
 }
 
 $quizTable = new quizTable(db());
-$quizs = $quizTable->get_quiz();
+$quizs = $quizTable->get_quiz_all();
 $quizNumber = 1;
 ?>
 <!DOCTYPE html>
