@@ -31,8 +31,9 @@ class quizTable
         $sql->bindValue(1, $qid);
         $sql->execute();
         $data = $sql->fetch();
+        $quiz = new quiz($data['qid'],$data['question'],$data['answer1'],$data['answer2'],$data['answer3'],$data['answer4'],$data['correctAnswer']);
 
-        return $data;
+        return $quiz;
     }
 
     public function get_hantei($answer)
@@ -40,7 +41,7 @@ class quizTable
         $kekka = [];
         foreach ($answer as $key => $data){
             $correctAnswer = $this->get_quiz($key);
-            if($correctAnswer['correctAnswer'] == $data){
+            if($correctAnswer->getCorrectAnswer() == $data){
                 $kekka[$key] = 1; //正解
             }else{
                 $kekka[$key] = 0; //不正解
