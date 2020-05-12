@@ -39,8 +39,8 @@ class quizTable
     {
         $kekka = [];
         foreach ($answer as $key => $data){
-            $correctAnswer = $this->getCorrectAnswer($key);
-            if($correctAnswer->getCorrectAnswer() == $data){
+            $correctAnswer = $this->get_quiz($key);
+            if($correctAnswer['correctAnswer'] == $data){
                 $kekka[$key] = 1; //正解
             }else{
                 $kekka[$key] = 0; //不正解
@@ -49,16 +49,16 @@ class quizTable
         return $kekka;
     }
 
-    private function getCorrectAnswer($qid)
-    {
-        $sql = $this->db->prepare("SELECT correctAnswer FROM quiz WHERE qid=?");
-        $sql->bindValue(1, $qid);
-        $sql->execute();
-        $data = $sql->fetch();
-        $correctAnswer = new quiz(null,null,null,null,null,null,$data['correctAnswer']);
-
-        return $correctAnswer;
-    }
+//    private function getCorrectAnswer($qid)
+//    {
+//        $sql = $this->db->prepare("SELECT correctAnswer FROM quiz WHERE qid=?");
+//        $sql->bindValue(1, $qid);
+//        $sql->execute();
+//        $data = $sql->fetch();
+//        $correctAnswer = new quiz(null,null,null,null,null,null,$data['correctAnswer']);
+//
+//        return $correctAnswer;
+//    }
 
     public function getCorrectCount($kekka)
     {
