@@ -25,15 +25,14 @@ if(isset($_POST['qid1'],$_POST['qid2'],$_POST['qid3'],$_POST['qid4'],$_POST['qid
     $kekka = [];
     $count = 0;
     foreach ($answer as $key => $data){
-        $correctAnswer = $quizTable->get_quiz($key);
-        if($correctAnswer->getCorrectAnswer() == $data){
+        $quiz = $quizTable->get_quiz($key);
+        if($quiz->getCorrectAnswer() == $data){
             $kekka[] = '○';
             $count = $count + 1;
         }else{
             $kekka[] = '×';
         }
     }
-    $quizNumber = 1;
 }else{
     exit();
 }
@@ -59,11 +58,10 @@ if(isset($_POST['qid1'],$_POST['qid2'],$_POST['qid3'],$_POST['qid4'],$_POST['qid
             <p>あなたは5問中<?php echo $count; ?>問正解です。</p>
             <p>名前を登録してください。</p>
             <?php
-            foreach($kekka as $data){
+            foreach($kekka as $key => $data){
                 ?>
-                <p>クイズ<?php echo $quizNumber; ?>:<?php echo $data ?></p>
+                <p>クイズ<?php echo $key; ?>:<?php echo $data ?></p>
                 <?php
-                $quizNumber = $quizNumber + 1;
             }
             ?>
             <p><a href="quiz.php">もう一度クイズをおこなう</a></p>
