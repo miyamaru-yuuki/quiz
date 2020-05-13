@@ -35,7 +35,7 @@ if(empty($karahantei)){
             <form method="POST" action="kanryou.php">
                 <p>この名前で登録してよろしいですか？</p>
                 <p>名前:<?php echo h($name); ?></p>
-                <input type="hidden" name="name" value="<?php echo $name; ?>">
+                <input type="hidden" name="name" value="<?php echo h($name); ?>">
                 <input type="hidden" name="count" value="<?php echo $count; ?>">
                 <p><input type="submit" value="OK"></p>
             </form>

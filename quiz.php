@@ -36,10 +36,10 @@ $quizNumber = 1;
                 ?>
                 <p>クイズ<?php echo $quizNumber; ?></p>
                 <p><?php echo $quiz->getQuestion(); ?></p>
-                <input type="radio" name="answer<?php echo $quizNumber; ?>" value="1"><?php echo $quiz->getAnswer1(); ?>
-                <input type="radio" name="answer<?php echo $quizNumber; ?>" value="2"><?php echo $quiz->getAnswer2(); ?>
-                <input type="radio" name="answer<?php echo $quizNumber; ?>" value="3"><?php echo $quiz->getAnswer3(); ?>
-                <input type="radio" name="answer<?php echo $quizNumber; ?>" value="4"><?php echo $quiz->getAnswer4(); ?>
+                <input type="radio" name="answer<?php echo $quizNumber; ?>" value="1"><?php echo h($quiz->getAnswer1()); ?>
+                <input type="radio" name="answer<?php echo $quizNumber; ?>" value="2"><?php echo h($quiz->getAnswer2()); ?>
+                <input type="radio" name="answer<?php echo $quizNumber; ?>" value="3"><?php echo h($quiz->getAnswer3()); ?>
+                <input type="radio" name="answer<?php echo $quizNumber; ?>" value="4"><?php echo h($quiz->getAnswer4()); ?>
                 <input type="hidden" name="qid<?php echo $quizNumber; ?>" value="<?php echo $quiz->getQid(); ?>">
                 <?php
                 $quizNumber = $quizNumber + 1;

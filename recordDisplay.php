@@ -27,7 +27,7 @@ $records = $recordTable->get_record();
                 <?php
                 foreach($records as $record){
                     ?>
-                    <tr><td><?php echo $record->getName(); ?></td><td><?php echo $record->getCorrectPoints(); ?></td></tr>
+                    <tr><td><?php echo h($record->getName()); ?></td><td><?php echo $record->getCorrectPoints(); ?></td></tr>
                     <?php
                 }
                 ?>
