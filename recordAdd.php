@@ -60,7 +60,7 @@ if(isset($_POST['qid1'],$_POST['qid2'],$_POST['qid3'],$_POST['qid4'],$_POST['qid
             <?php
             foreach($kekka as $key => $data){
                 ?>
-                <p>クイズ<?php echo $key; ?>:<?php echo $data ?></p>
+                <p>クイズ<?php echo $key+1; ?>:<?php echo $data ?></p>
                 <?php
             }
             ?>
