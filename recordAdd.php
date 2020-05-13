@@ -21,10 +21,33 @@ if(isset($_POST['qid1'],$_POST['qid2'],$_POST['qid3'],$_POST['qid4'],$_POST['qid
     $answer[$qid5] = $answer5;
 
     $quizTable = new quizTable(db());
-    $kekka = $quizTable->get_hantei($answer);
 
-    $count = $quizTable->getCorrectCount($kekka);
-    $kekkaDisplay = $quizTable->getKekkaDisplay($kekka);
+    $kekka = [];
+    foreach ($answer as $key => $data){
+        $correctAnswer = $quizTable->get_quiz($key);
+        if($correctAnswer->getCorrectAnswer() == $data){
+            $kekka[$key] = 1; //正解
+        }else{
+            $kekka[$key] = 0; //不正解
+        }
+    }
+
+    $count = 0;
+    foreach ($kekka as $data){
+        if($data){
+            $count = $count + 1;
+        }
+    }
+
+    $kekkaDisplay = [];
+    foreach ($kekka as $key => $data){
+        if($data){
+            $kekkaDisplay[$key] = '○';
+        }else{
+            $kekkaDisplay[$key] = '×';
+        }
+    }
+
     $quizNumber = 1;
 }else{
     exit();
