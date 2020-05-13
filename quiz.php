@@ -35,7 +35,7 @@ $quizNumber = 1;
             foreach($quizs as $quiz){
                 ?>
                 <p>クイズ<?php echo $quizNumber; ?></p>
-                <p><?php echo $quiz->getQuestion(); ?></p>
+                <p><?php echo h($quiz->getQuestion()); ?></p>
                 <input type="radio" name="answer<?php echo $quizNumber; ?>" value="1"><?php echo h($quiz->getAnswer1()); ?>
                 <input type="radio" name="answer<?php echo $quizNumber; ?>" value="2"><?php echo h($quiz->getAnswer2()); ?>
                 <input type="radio" name="answer<?php echo $quizNumber; ?>" value="3"><?php echo h($quiz->getAnswer3()); ?>
