@@ -23,31 +23,16 @@ if(isset($_POST['qid1'],$_POST['qid2'],$_POST['qid3'],$_POST['qid4'],$_POST['qid
     $quizTable = new quizTable(db());
 
     $kekka = [];
+    $count = 0;
     foreach ($answer as $key => $data){
         $correctAnswer = $quizTable->get_quiz($key);
         if($correctAnswer->getCorrectAnswer() == $data){
-            $kekka[$key] = 1; //正解
-        }else{
-            $kekka[$key] = 0; //不正解
-        }
-    }
-
-    $count = 0;
-    foreach ($kekka as $data){
-        if($data){
+            $kekka[] = '○';
             $count = $count + 1;
-        }
-    }
-
-    $kekkaDisplay = [];
-    foreach ($kekka as $key => $data){
-        if($data){
-            $kekkaDisplay[$key] = '○';
         }else{
-            $kekkaDisplay[$key] = '×';
+            $kekka[] = '×';
         }
     }
-
     $quizNumber = 1;
 }else{
     exit();
@@ -74,7 +59,7 @@ if(isset($_POST['qid1'],$_POST['qid2'],$_POST['qid3'],$_POST['qid4'],$_POST['qid
             <p>あなたは5問中<?php echo $count; ?>問正解です。</p>
             <p>名前を登録してください。</p>
             <?php
-            foreach($kekkaDisplay as $data){
+            foreach($kekka as $data){
                 ?>
                 <p>クイズ<?php echo $quizNumber; ?>:<?php echo $data ?></p>
                 <?php
