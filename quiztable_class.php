@@ -12,7 +12,7 @@ class quizTable
 
     public function get_quiz_all()
     {
-        $sql = $this->db->prepare("SELECT * FROM quiz LIMIT 5");
+        $sql = $this->db->prepare("SELECT * FROM quiz ORDER BY RAND() LIMIT 5");
         $sql->execute();
         $all = $sql->fetchAll();
         $ret = array();

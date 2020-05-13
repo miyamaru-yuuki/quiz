@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c912b0d3-62f7-4a73-9ba0-12e215099249" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/recordAdd.php" beforeDir="false" afterPath="$PROJECT_DIR$/recordAdd.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quiztable_class.php" beforeDir="false" afterPath="$PROJECT_DIR$/quiztable_class.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,7 +12,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/recordAdd.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="308">
@@ -21,11 +21,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/quiztable_class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+            <state relative-caret-position="210">
+              <caret line="14" column="70" selection-start-line="14" selection-start-column="70" selection-end-line="14" selection-end-column="70" />
             </state>
           </provider>
         </entry>
@@ -55,8 +55,8 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/recordDisplay.php" />
         <option value="$PROJECT_DIR$/quiz.php" />
-        <option value="$PROJECT_DIR$/quiztable_class.php" />
         <option value="$PROJECT_DIR$/recordAdd.php" />
+        <option value="$PROJECT_DIR$/quiztable_class.php" />
       </list>
     </option>
   </component>
@@ -158,12 +158,12 @@
       <workItem from="1589194875675" duration="49000" />
       <workItem from="1589194939824" duration="1156000" />
       <workItem from="1589235749495" duration="2780000" />
-      <workItem from="1589262848385" duration="4002000" />
+      <workItem from="1589262848385" duration="4632000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22701000" />
+    <option name="totallyTimeSpent" value="23331000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="834" extended-state="0" />
@@ -289,17 +289,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/quiztable_class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/recordAdd.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="59" column="17" lean-forward="true" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/quiztable_class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="70" selection-start-line="14" selection-start-column="70" selection-end-line="14" selection-end-column="70" />
         </state>
       </provider>
     </entry>
