@@ -1,5 +1,9 @@
 <?php
 require_once ('function.php');
+//エラー処理
+if(isset($_GET['error']) && $_GET['error'] == 1){
+    echo '指定した画面を表示できませんでした。';
+}
 ?>
 <!DOCTYPE html>
 <html>

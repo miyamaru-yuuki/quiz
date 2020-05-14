@@ -3,7 +3,7 @@ require_once ('function.php');
 require_once ('recordtable_class.php');
 
 if(!isset($_POST['name'],$_POST['count'])){
-    header("Location: http://mmr.e5.valueserver.jp/quiz/recordAdd.php?error=1");
+    header("Location: http://mmr.e5.valueserver.jp/quiz/index.php?error=1");
     exit();
 }
 $name = $_POST['name'];

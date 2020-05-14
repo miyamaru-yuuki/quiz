@@ -34,6 +34,7 @@ if(isset($_POST['qid1'],$_POST['qid2'],$_POST['qid3'],$_POST['qid4'],$_POST['qid
         }
     }
 }else{
+    header("Location: http://mmr.e5.valueserver.jp/quiz/index.php?error=1");
     exit();
 }
 ?>
