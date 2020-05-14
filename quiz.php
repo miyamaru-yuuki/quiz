@@ -7,6 +7,8 @@ if(isset($_GET['error']) && $_GET['error'] == 1){
     echo 'ページを表示できません。やりなおしてください。';
 }elseif(isset($_GET['error']) && $_GET['error'] == 2){
     echo '名前が入力されていません。';
+}elseif(isset($_GET['error']) && $_GET['error'] == 3){
+    echo '答えを全て選択してください。';
 }
 
 $quizTable = new quizTable(db());
