@@ -2,40 +2,39 @@
 require_once ('function.php');
 require_once ('quiztable_class.php');
 
-if(isset($_POST['qid1'],$_POST['qid2'],$_POST['qid3'],$_POST['qid4'],$_POST['qid5'],$_POST['answer1'],$_POST['answer2'],$_POST['answer3'],$_POST['answer4'],$_POST['answer5'])){
-    $qid1 = $_POST['qid1'];
-    $qid2 = $_POST['qid2'];
-    $qid3 = $_POST['qid3'];
-    $qid4 = $_POST['qid4'];
-    $qid5 = $_POST['qid5'];
-    $answer1 = $_POST['answer1'];
-    $answer2 = $_POST['answer2'];
-    $answer3 = $_POST['answer3'];
-    $answer4 = $_POST['answer4'];
-    $answer5 = $_POST['answer5'];
-
-    $answer[$qid1] = $answer1;
-    $answer[$qid2] = $answer2;
-    $answer[$qid3] = $answer3;
-    $answer[$qid4] = $answer4;
-    $answer[$qid5] = $answer5;
-
-    $quizTable = new quizTable(db());
-
-    $kekka = [];
-    $count = 0;
-    foreach ($answer as $key => $data){
-        $quiz = $quizTable->get_quiz($key);
-        if($quiz->getCorrectAnswer() == $data){
-            $kekka[] = '○';
-            $count = $count + 1;
-        }else{
-            $kekka[] = '×';
-        }
-    }
-}else{
+if(!isset($_POST['qid1'],$_POST['qid2'],$_POST['qid3'],$_POST['qid4'],$_POST['qid5'],$_POST['answer1'],$_POST['answer2'],$_POST['answer3'],$_POST['answer4'],$_POST['answer5'])){
     header("Location: http://mmr.e5.valueserver.jp/quiz/quiz.php?error=3");
     exit();
+}
+$qid1 = $_POST['qid1'];
+$qid2 = $_POST['qid2'];
+$qid3 = $_POST['qid3'];
+$qid4 = $_POST['qid4'];
+$qid5 = $_POST['qid5'];
+$answer1 = $_POST['answer1'];
+$answer2 = $_POST['answer2'];
+$answer3 = $_POST['answer3'];
+$answer4 = $_POST['answer4'];
+$answer5 = $_POST['answer5'];
+
+$answer[$qid1] = $answer1;
+$answer[$qid2] = $answer2;
+$answer[$qid3] = $answer3;
+$answer[$qid4] = $answer4;
+$answer[$qid5] = $answer5;
+
+$quizTable = new quizTable(db());
+
+$kekka = [];
+$count = 0;
+foreach ($answer as $key => $data){
+    $quiz = $quizTable->get_quiz($key);
+    if($quiz->getCorrectAnswer() == $data){
+        $kekka[] = '○';
+        $count = $count + 1;
+    }else{
+        $kekka[] = '×';
+    }
 }
 ?>
 <!DOCTYPE html>
