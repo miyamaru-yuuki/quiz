@@ -36,7 +36,7 @@ if(empty($karahantei)){
                 <p>この名前で登録してよろしいですか？</p>
                 <p>名前:<?php echo h($name); ?></p>
                 <input type="hidden" name="name" value="<?php echo h($name); ?>">
-                <input type="hidden" name="count" value="<?php echo $count; ?>">
+                <input type="hidden" name="count" value="<?php echo h($count); ?>">
                 <p><input type="submit" value="OK"></p>
             </form>
             <p><a href="quiz.php">戻る</a></p>
