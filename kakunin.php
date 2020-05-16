@@ -8,7 +8,7 @@ if(!isset($_POST['name'],$_POST['count'])){
 $name = $_POST['name'];
 $count = $_POST['count'];
 
-$karahantei = str_replace(array(" ", "　"), "", $_POST['name']);
+$karahantei = str_replace(array(" ", "　"), "", $name);
 
 if(empty($karahantei)){
     header("Location: http://mmr.e5.valueserver.jp/quiz/quiz.php?error=2");

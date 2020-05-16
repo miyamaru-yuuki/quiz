@@ -20,7 +20,7 @@ $recordTable->add($name,$count);
     <title><?php echo title(); ?></title>
     <style>
     </style>
-    <link rel="stylesheet" type="text/css" href="<?php echo css(); ?>?ver=3">
+    <link rel="stylesheet" type="text/css" href="<?php echo css(); ?>">
 </head>
 <body>
 <div id="wrapper">
