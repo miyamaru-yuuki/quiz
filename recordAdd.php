@@ -17,6 +17,8 @@ $answer3 = $_POST['answer3'];
 $answer4 = $_POST['answer4'];
 $answer5 = $_POST['answer5'];
 
+$answer = [];
+
 $answer[$qid1] = $answer1;
 $answer[$qid2] = $answer2;
 $answer[$qid3] = $answer3;
