@@ -24,18 +24,8 @@ $answer[$qid4] = $answer4;
 $answer[$qid5] = $answer5;
 
 $quizTable = new quizTable(db());
-
-$kekka = [];
 $count = 0;
-foreach ($answer as $key => $data){
-    $quiz = $quizTable->get_quiz($key);
-    if($quiz->getCorrectAnswer() == $data){
-        $kekka[] = '○';
-        $count = $count + 1;
-    }else{
-        $kekka[] = '×';
-    }
-}
+$quizNumber = 1;
 ?>
 <!DOCTYPE html>
 <html>
@@ -54,16 +44,25 @@ foreach ($answer as $key => $data){
     </header>
     <div id="contents">
         <main>
+            <?php
+            foreach ($answer as $key => $data){
+                $quiz = $quizTable->get_quiz($key);
+                if($quiz->getCorrectAnswer() == $data){
+                    $count = $count + 1;
+                    ?>
+                    <p>クイズ<?php echo $quizNumber; ?>:<?php echo '○' ?></p>
+                    <?php
+                }else{
+                    ?>
+                    <p>クイズ<?php echo $quizNumber; ?>:<?php echo '×' ?></p>
+                    <?php
+                }
+                $quizNumber = $quizNumber + 1;
+            }
+            ?>
             <p>お疲れ様でした。</p>
             <p>あなたは5問中<?php echo $count; ?>問正解です。</p>
             <p>名前を登録してください。</p>
-            <?php
-            foreach($kekka as $key => $data){
-                ?>
-                <p>クイズ<?php echo $key+1; ?>:<?php echo $data ?></p>
-                <?php
-            }
-            ?>
             <p><a href="quiz.php">もう一度クイズをおこなう</a></p>
             <form method="POST" action="kakunin.php">
                 <p>名前:<input type="text" name="name"></p>
