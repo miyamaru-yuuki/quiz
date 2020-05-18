@@ -38,16 +38,16 @@ $quizNumber = 1;
                 ?>
                 <p>クイズ<?php echo $quizNumber; ?></p>
                 <p><?php echo h($quiz->getQuestion()); ?></p>
-                <p><input type="radio" name="answer<?php echo $quizNumber; ?>" value="1"><?php echo h($quiz->getAnswer1()); ?></p>
-                <p><input type="radio" name="answer<?php echo $quizNumber; ?>" value="2"><?php echo h($quiz->getAnswer2()); ?></p>
-                <p><input type="radio" name="answer<?php echo $quizNumber; ?>" value="3"><?php echo h($quiz->getAnswer3()); ?></p>
-                <p><input type="radio" name="answer<?php echo $quizNumber; ?>" value="4"><?php echo h($quiz->getAnswer4()); ?></p>
+                <input type="radio" name="answer<?php echo $quizNumber; ?>" value="1"><?php echo h($quiz->getAnswer1()); ?>
+                <input type="radio" name="answer<?php echo $quizNumber; ?>" value="2"><?php echo h($quiz->getAnswer2()); ?>
+                <input type="radio" name="answer<?php echo $quizNumber; ?>" value="3"><?php echo h($quiz->getAnswer3()); ?>
+                <input type="radio" name="answer<?php echo $quizNumber; ?>" value="4"><?php echo h($quiz->getAnswer4()); ?>
                 <input type="hidden" name="qid<?php echo $quizNumber; ?>" value="<?php echo $quiz->getQid(); ?>">
                 <?php
                 $quizNumber = $quizNumber + 1;
             }
             ?>
-                <p><input type="submit" value="解答を登録する"></p>
+                <div><input type="submit" value="解答を登録する"></div>
             </form>
             <p><a href="index.php">TOP</a></p>
         </main>
