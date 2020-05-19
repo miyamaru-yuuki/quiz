@@ -1,4 +1,8 @@
 <?php
+session_start();
+session_regenerate_id(true);
+setcookie(session_name(),session_id(),time()+60*60*24*3);
+
 require_once ('function.php');
 require_once ('quiztable_class.php');
 
@@ -59,6 +63,7 @@ $quizNumber = 1;
                 }
                 $quizNumber = $quizNumber + 1;
             }
+            $_SESSION['count'] = $count;
             ?>
             <p>お疲れ様でした。</p>
             <p>あなたは5問中<?php echo $count; ?>問正解です。</p>
@@ -66,7 +71,6 @@ $quizNumber = 1;
             <p><a href="quiz.php">もう一度クイズをおこなう</a></p>
             <form method="POST" action="kakunin.php">
                 <p>名前:<input type="text" name="name"></p>
-                <input type="hidden" name="count" value="<?php echo $count; ?>">
                 <p><input type="submit" value="登録"></p>
             </form>
         </main>

@@ -1,13 +1,11 @@
 <?php
 require_once ('function.php');
 
-if(!isset($_POST['name'],$_POST['count'])){
+if(!isset($_POST['name'])){
     header("Location: http://mmr.e5.valueserver.jp/quiz/index.php?error=1");
     exit();
 }
 $name = $_POST['name'];
-$count = (int)$_POST['count'];
-
 $karahantei = str_replace(array(" ", "　"), "", $name);
 
 if(empty($karahantei)){
@@ -36,7 +34,6 @@ if(empty($karahantei)){
                 <p>この名前で登録してよろしいですか？</p>
                 <p>名前:<?php echo h($name); ?></p>
                 <input type="hidden" name="name" value="<?php echo h($name); ?>">
-                <input type="hidden" name="count" value="<?php echo $count; ?>">
                 <p><input type="submit" value="OK"></p>
             </form>
             <p><a href="quiz.php">戻る</a></p>
