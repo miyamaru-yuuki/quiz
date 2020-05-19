@@ -12,20 +12,17 @@ require_once ('function.php');
     <link rel="stylesheet" type="text/css" href="<?php echo css(); ?>">
 </head>
 <body>
-<?php
-//エラー処理
-if(isset($_GET['error']) && $_GET['error'] == 1){
-echo '<p>指定した画面を表示できませんでした。</p>';
-}
-?>
 <div id="wrapper">
     <header>
         <h1>クイズ</h1>
     </header>
     <div id="contents">
         <main>
-            <p><a href="quiz.php">クイズを始める</a></p>
-            <p><a href="recordDisplay.php">記録を見る</a></p>
+            <form method="POST" action="kakunin.php">
+                <p>名前:<input type="text" name="name"></p>
+                <input type="hidden" name="count" value="10">
+                <p><input type="submit" value="登録"></p>
+            </form>
         </main>
     </div>
     <footer>
